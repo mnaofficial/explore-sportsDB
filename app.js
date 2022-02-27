@@ -19,7 +19,7 @@ const showPlayerDetails = (players) => {
           </div>
             <h2>Name: ${player.strPlayer}</h2>
             <h5>Country: ${player.strNationality}</h5>
-            <p> ${player}</p>
+            <p></p>
          <div class="all-button">
            <button class="btn btn-danger">Delete</button>
            <button onclick="details('${player.idPlayer}')" class="btn btn-success">Details</button>
@@ -27,15 +27,19 @@ const showPlayerDetails = (players) => {
       </div>
     `;
         parent.appendChild(div);
-
-        // console.log(player);
     };
 }
-const details = (info) => {
-    const url = ` https://www.thesportsdb.com/api/v1/json/2/lookupplayer.php?id=${info} `;
+const details = (id) => {
+    const url = ` https://www.thesportsdb.com/api/v1/json/2/lookupplayer.php?id=${id} `;
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
-
-    console.log('player');
+        .then(data => setDetails(data.players[0]))
+};
+const setDetails = (info) => {
+    document.getElementById('details-container').innerHTML = `
+    <div>
+       <img class="w-50" src="${info.strThumb}" alt="">
+       <h1>Name: ${info.strPlayer} </h1>
+    </div>
+    `
 }
