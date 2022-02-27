@@ -15,9 +15,26 @@
 </head>
 
 <body>
-
-
-
+    <div class="container w-100 m-auto">
+        <div class="row w-100 m-auto">
+            <!-- left side area -->
+            <div class="col-md-6 w-50 m-auto text-center">
+                <h1>left side</h1>
+                <!-- input area -->
+                <div class="input-group mb-3">
+                    <input id="search-box" type="text" class="form-control"
+                        placeholder="Search Your Favorite Player Name" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button onclick="allPlayers()" class="btn btn-outline-secondary" type="button"
+                        id="search-btn">Search</button>
+                </div>
+            </div>
+            <!-- Right side area -->
+            <div class="col-md-6 w-50 m-auto text-center">
+                <h1>Right side</h1>
+            </div>
+        </div>
+    </div>
 
     <!-- js script -->
     <script src="app.js"></script>
